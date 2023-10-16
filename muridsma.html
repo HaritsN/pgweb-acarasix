@@ -34,7 +34,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href="index.html"
           ><i class="fa-solid fa-earth-asia"></i> Infografis Kota Tangerang</a
         >
         <button
@@ -108,7 +108,7 @@
     <div class="container mt-4">
       <div class="card">
         <div class="card-header">
-          <h4>Jumlah Penduduk</h4>
+          <h4>Jumlah Murid Sekolah Menengah Atas</h4>
         </div>
         <div class="card-body">
           <div id="chart"></div>
@@ -178,34 +178,48 @@
       var options = {
         series: [
           {
-            name: "Jumlah Penduduk",
+            name: "Jumlah Murid",
             data: [
-              136525, 143934, 108405, 203881, 168477, 153793, 184216, 104419,
-              149192, 134741, 90053, 115162, 78294,
+              2360, 964, 2450, 3684, 2363, 5513, 5846, 842, 1318, 1502, 1544,
+              1286, 240,
             ],
           },
         ],
         chart: {
           type: "bar",
-          height: 350,
+          height: 450,
         },
         plotOptions: {
           bar: {
-            horizontal: false,
-            columnWidth: "55%",
-            endingShape: "rounded",
-            dataLabels: {
-              position: "top",
-            },
+            borderRadius: 0,
+            horizontal: true,
+            distributed: true,
+            barHeight: "80%",
+            isFunnel: true,
           },
+          colors: [
+            "#F44F5E",
+            "#E55A89",
+            "#D863B1",
+            "#CA6CD8",
+            "#B57BED",
+            "#8D95EB",
+            "#62ACEA",
+            "#4BC3E6",
+          ],
         },
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
+          },
+          dropShadow: {
+            enabled: true,
+          },
         },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ["transparent"],
+        title: {
+          text: "Jumlah Murid Sekolah Menengah Atas",
+          align: "middle",
         },
         xaxis: {
           categories: [
@@ -223,35 +237,9 @@
             "Neglasari",
             "Benda",
           ],
-          title: {
-            text: "Kecamatan di Kota Tangerang",
-          },
         },
-        yaxis: {
-          title: {
-            text: "Jumlah Penduduk, 2019",
-          },
-        },
-        fill: {
-          opacity: 1,
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return val + " Jiwa";
-            },
-          },
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: function (val) {
-            return val;
-          },
-          offsetY: -20,
-          style: {
-            fontSize: "12px",
-            colors: ["#304758"],
-          },
+        legend: {
+          show: false,
         },
       };
 

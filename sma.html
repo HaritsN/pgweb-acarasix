@@ -108,7 +108,7 @@
     <div class="container mt-4">
       <div class="card">
         <div class="card-header">
-          <h4>Jumlah Penduduk</h4>
+          <h4>Jumlah Sekolah Menengah Atas</h4>
         </div>
         <div class="card-body">
           <div id="chart"></div>
@@ -178,34 +178,22 @@
       var options = {
         series: [
           {
-            name: "Jumlah Penduduk",
-            data: [
-              136525, 143934, 108405, 203881, 168477, 153793, 184216, 104419,
-              149192, 134741, 90053, 115162, 78294,
-            ],
+            name: "Jumlah",
+            data: [36, 31, 29, 47, 47, 52, 56, 24, 44, 40, 25, 32, 21],
           },
         ],
         chart: {
           type: "bar",
-          height: 350,
+          height: 450,
         },
         plotOptions: {
           bar: {
-            horizontal: false,
-            columnWidth: "55%",
-            endingShape: "rounded",
-            dataLabels: {
-              position: "top",
-            },
+            borderRadius: 4,
+            horizontal: true,
           },
         },
         dataLabels: {
-          enabled: false,
-        },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ["transparent"],
+          enabled: true,
         },
         xaxis: {
           categories: [
@@ -224,33 +212,12 @@
             "Benda",
           ],
           title: {
-            text: "Kecamatan di Kota Tangerang",
+            text: "Jumlah SMA di Kota Tangerang, 2020",
           },
         },
         yaxis: {
           title: {
-            text: "Jumlah Penduduk, 2019",
-          },
-        },
-        fill: {
-          opacity: 1,
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return val + " Jiwa";
-            },
-          },
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: function (val) {
-            return val;
-          },
-          offsetY: -20,
-          style: {
-            fontSize: "12px",
-            colors: ["#304758"],
+            text: "Kecamatan di Kota Tangerang",
           },
         },
       };
